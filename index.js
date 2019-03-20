@@ -127,7 +127,7 @@ module.exports = function prettyFactory (options) {
       ? color[log.level](levels[log.level])
       : color.default(levels.default)
     if (opts.levelFirst) {
-      line = `${coloredLevel} ${line}`
+      line = `${coloredLevel}${line}`
     } else {
       // If the line is not empty (timestamps are enabled) output it
       // with a space after it - otherwise output the empty string
@@ -135,14 +135,9 @@ module.exports = function prettyFactory (options) {
       line = `${lineOrEmpty}${coloredLevel}`
     }
 
-    if (log.name || log.module) {
-      line += ' ('
-
-      if (log.name) {
-        line += log.name
-      }
-
-      line += ')'
+    if (log.name) {
+      line += ' '
+      line += log.name
     }
 
     line += ': '
