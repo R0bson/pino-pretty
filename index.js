@@ -135,21 +135,11 @@ module.exports = function prettyFactory (options) {
       line = `${lineOrEmpty}${coloredLevel}`
     }
 
-    if (log.name || log.pid || log.hostname) {
+    if (log.name || log.module) {
       line += ' ('
 
       if (log.name) {
         line += log.name
-      }
-
-      if (log.name && log.pid) {
-        line += '/' + log.pid
-      } else if (log.pid) {
-        line += log.pid
-      }
-
-      if (log.hostname) {
-        line += ' on ' + log.hostname
       }
 
       line += ')'
